@@ -1,0 +1,660 @@
+{
+  "schema": "clarification-questions/v1",
+  "generated_at": "2026-10-11T07:50:00Z",
+  "user_input": "okay we have all the code and frontend and backend stuff and eveythign in lovable and typescript...in root folder..\n\ni want you to repleciate exactly that all in javascript and nextjs initialized inside the triage-bug-tracker fodler..? you got it..? any doubts??",
+  "title": "TypeScript/Vite to JavaScript/Next.js recreation",
+  "assessment_snapshot": {
+    "intro": "The workspace contains an existing TypeScript/Vite bug-tracker application and a separate Next.js target scaffold, including:",
+    "bullets": [
+      "The source includes dashboard, bug list/detail/create, analytics, settings, auth, landing, OAuth consent, and MCP setup screens.",
+      "Supabase client/auth and MCP integrations exist in the source workspace.",
+      "The target folder triage-bug-tracker already has Next.js 16.4.0, React 19.3.0, and Tailwind CSS 4 initialized.",
+      "The source includes shadcn/ui-style component files; no separate screenshot or design reference was supplied in the request."
+    ]
+  },
+  "proposed_outcome": "Recreate the source application's frontend and backend behavior in JavaScript within the existing triage-bug-tracker Next.js project, preserving user-visible flows and existing integrations unless the answers below specify a different backend or data migration approach.",
+  "scope": [
+    "frontend",
+    "backend",
+    "generic"
+  ],
+  "status": "answered",
+  "questions": [
+    {
+      "id": "F1",
+      "kit": "frontend",
+      "field": "target.framework",
+      "title": "Target framework",
+      "question": "Which frontend framework and version should the JavaScript rewrite use? The target folder already contains Next.js 16.4.0 with React 19.3.0.",
+      "importance": "required",
+      "impact": 5,
+      "recommended": "Next.js 16.4.0 (App Router)",
+      "default": null,
+      "prefilled": true,
+      "prefilled_value": "Next.js 16.4.0 (App Router)",
+      "answer": {
+        "value": "Next.js 16.4.0 (App Router)",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Next.js 16.4.0 (App Router)",
+          "label": "Next.js 16.4.0 (App Router)"
+        },
+        {
+          "value": "Next.js 15 (App Router)",
+          "label": "Next.js 15 (App Router)"
+        },
+        {
+          "value": "Other Next.js version or framework",
+          "label": "Other Next.js version or framework"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F2",
+      "kit": "frontend",
+      "field": "target.component_library",
+      "title": "Component library",
+      "question": "Which component/UI library should the recreation use? The source workspace contains shadcn/ui-style components.",
+      "importance": "required",
+      "impact": 4,
+      "recommended": "shadcn/ui (preserve existing patterns)",
+      "default": null,
+      "prefilled": true,
+      "prefilled_value": "shadcn/ui (preserve existing patterns)",
+      "answer": {
+        "value": "shadcn/ui (preserve existing patterns)",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "shadcn/ui (preserve existing patterns)",
+          "label": "shadcn/ui (preserve existing patterns)"
+        },
+        {
+          "value": "Use existing components without a component library",
+          "label": "Use existing components without a component library"
+        },
+        {
+          "value": "Other component library",
+          "label": "Other component library"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F3",
+      "kit": "frontend",
+      "field": "visual.screenshots",
+      "title": "Visual references",
+      "question": "Do you have screenshots, a screen recording, a deployed URL, or a Figma link for the current UI to help verify an exact visual match? If the source code is the only reference, say so.",
+      "importance": "required",
+      "impact": 5,
+      "recommended": null,
+      "default": null,
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "not yet but try to rpelicate code and systems exactly eith orogina like ui ux placement and spacning colors and eveyrthing",
+        "source": "user"
+      },
+      "depends_on": null,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "F4",
+      "kit": "frontend",
+      "field": "visual.design_system",
+      "title": "Design system",
+      "question": "What design system or token source should guide the visual recreation? You asked for an exact recreation; we can extract CSS variables/styles from the existing source if you have no separate system.",
+      "importance": "required",
+      "impact": 4,
+      "recommended": "Match existing UI pixel-by-pixel using tokens/styles extracted from source",
+      "default": "match existing pixel-by-pixel using extracted CSS custom properties",
+      "prefilled": true,
+      "prefilled_value": "Match existing UI pixel-by-pixel using tokens/styles extracted from source",
+      "answer": {
+        "value": "Match existing UI pixel-by-pixel using tokens/styles extracted from source",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Match existing UI pixel-by-pixel using tokens/styles extracted from source",
+          "label": "Match existing UI pixel-by-pixel using tokens/styles extracted from source"
+        },
+        {
+          "value": "Use supplied Figma, Storybook, or design-token reference",
+          "label": "Use supplied Figma, Storybook, or design-token reference"
+        },
+        {
+          "value": "Other design system",
+          "label": "Other design system"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F5",
+      "kit": "frontend",
+      "field": "compliance.accessibility",
+      "title": "Accessibility standard",
+      "question": "What accessibility standard should the recreated UI target?",
+      "importance": "recommended",
+      "impact": 3,
+      "recommended": "WCAG 2.1 AA",
+      "default": "WCAG 2.1 AA",
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "WCAG 2.1 AA",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "WCAG 2.1 AA",
+          "label": "WCAG 2.1 AA"
+        },
+        {
+          "value": "WCAG 2.2 AA",
+          "label": "WCAG 2.2 AA"
+        },
+        {
+          "value": "No additional accessibility target",
+          "label": "No additional accessibility target"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F6",
+      "kit": "frontend",
+      "field": "compatibility.browsers",
+      "title": "Browser targets",
+      "question": "Which browsers and versions should the recreated application support?",
+      "importance": "recommended",
+      "impact": 2,
+      "recommended": "Modern evergreen: Chrome, Firefox, Safari, Edge (latest 2 major versions)",
+      "default": "modern evergreen (Chrome, Firefox, Safari, Edge — latest 2 major versions)",
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "Modern evergreen: Chrome, Firefox, Safari, Edge (latest 2 major versions)",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Modern evergreen: Chrome, Firefox, Safari, Edge (latest 2 major versions)",
+          "label": "Modern evergreen: Chrome, Firefox, Safari, Edge (latest 2 major versions)"
+        },
+        {
+          "value": "Other browser targets",
+          "label": "Other browser targets"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F7",
+      "kit": "frontend",
+      "field": "responsive.breakpoints",
+      "title": "Responsive strategy",
+      "question": "What responsive layout strategy should the recreation use?",
+      "importance": "recommended",
+      "impact": 3,
+      "recommended": "Match the existing layout and breakpoints extracted from source (mobile-first where applicable)",
+      "default": "mobile-first using existing breakpoints detected from codebase",
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "Match the existing layout and breakpoints extracted from source (mobile-first where applicable)",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Match the existing layout and breakpoints extracted from source (mobile-first where applicable)",
+          "label": "Match the existing layout and breakpoints extracted from source (mobile-first where applicable)"
+        },
+        {
+          "value": "Desktop-only",
+          "label": "Desktop-only"
+        },
+        {
+          "value": "Other responsive strategy",
+          "label": "Other responsive strategy"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F8",
+      "kit": "frontend",
+      "field": "i18n.locales",
+      "title": "Languages/locales",
+      "question": "Which localization languages/locales should be included?",
+      "importance": "optional",
+      "impact": 1,
+      "recommended": null,
+      "default": "preserve current locales; keep existing i18n library if present",
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "Preserve current locales and existing i18n library, if any",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Preserve current locales and existing i18n library, if any",
+          "label": "Preserve current locales and existing i18n library, if any"
+        },
+        {
+          "value": "English only",
+          "label": "English only"
+        },
+        {
+          "value": "No localization requirement",
+          "label": "No localization requirement"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F9",
+      "kit": "frontend",
+      "field": "state_mgmt.preference",
+      "title": "Client-side state",
+      "question": "What client-side state-management approach do you prefer for the new app?",
+      "importance": "optional",
+      "impact": 2,
+      "recommended": "Preserve existing pattern if identifiable; otherwise use minimal component state plus a server-state library",
+      "default": "preserve existing pattern if identifiable; otherwise recommend minimal (component state + server-state library)",
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "Preserve existing pattern if identifiable; otherwise use minimal component state plus a server-state library",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Preserve existing pattern if identifiable; otherwise use minimal component state plus a server-state library",
+          "label": "Preserve existing pattern if identifiable; otherwise use minimal component state plus a server-state library"
+        },
+        {
+          "value": "Zustand",
+          "label": "Zustand"
+        },
+        {
+          "value": "Redux Toolkit",
+          "label": "Redux Toolkit"
+        },
+        {
+          "value": "Component state only",
+          "label": "Component state only"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F10",
+      "kit": "frontend",
+      "field": "routing.preference",
+      "title": "Routing strategy",
+      "question": "What routing strategy should be used? The target project is initialized with Next.js App Router.",
+      "importance": "optional",
+      "impact": 3,
+      "recommended": "Next.js App Router",
+      "default": "use the de-facto router for the chosen target framework",
+      "prefilled": true,
+      "prefilled_value": "Next.js App Router",
+      "answer": {
+        "value": "Next.js App Router",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Next.js App Router",
+          "label": "Next.js App Router"
+        },
+        {
+          "value": "Other routing strategy",
+          "label": "Other routing strategy"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "B1",
+      "kit": "backend",
+      "field": "target.framework",
+      "title": "Backend framework",
+      "question": "Which backend framework should the JavaScript rewrite use? The target scaffold already uses Next.js 16.4.0; choose whether backend routes/services should use that framework or another framework.",
+      "importance": "required",
+      "impact": 4,
+      "recommended": "Keep backend services in Supabase; Next.js only for the app",
+      "default": null,
+      "prefilled": true,
+      "prefilled_value": "Keep backend services in Supabase; Next.js only for the app",
+      "answer": {
+        "value": "Keep backend services in Supabase; Next.js only for the app",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Next.js 16.4.0 server components and Route Handlers (Node.js runtime)",
+          "label": "Next.js 16.4.0 server components and Route Handlers (Node.js runtime)"
+        },
+        {
+          "value": "Keep backend services in Supabase; Next.js only for the app",
+          "label": "Keep backend services in Supabase; Next.js only for the app"
+        },
+        {
+          "value": "Other backend framework or version",
+          "label": "Other backend framework or version"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "B2",
+      "kit": "backend",
+      "field": "api.contract_preservation",
+      "title": "API contract policy",
+      "question": "Should existing API and MCP contracts (routes, payloads, response codes, and tool interfaces) remain unchanged?",
+      "importance": "required",
+      "impact": 4,
+      "recommended": "Must preserve existing contracts",
+      "default": "must preserve",
+      "prefilled": true,
+      "prefilled_value": "Must preserve existing contracts",
+      "answer": {
+        "value": "Must preserve existing contracts",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Must preserve existing contracts",
+          "label": "Must preserve existing contracts"
+        },
+        {
+          "value": "Can introduce a versioned API while retaining compatibility",
+          "label": "Can introduce a versioned API while retaining compatibility"
+        },
+        {
+          "value": "Can redesign contracts; no existing clients need compatibility",
+          "label": "Can redesign contracts; no existing clients need compatibility"
+        },
+        {
+          "value": "Preserve only specified contracts",
+          "label": "Preserve only specified contracts"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "B3",
+      "kit": "backend",
+      "field": "data.migration_strategy",
+      "title": "Data and backend strategy",
+      "question": "How should the existing Supabase database, backend services, and stored data be handled in the recreation?",
+      "importance": "required",
+      "impact": 5,
+      "recommended": "Keep the existing Supabase project, schema, and data; port the app integrations",
+      "default": "TBD / assess in research phase",
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "Keep the existing Supabase project, schema, and data; port the app integrations",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Keep the existing Supabase project, schema, and data; port the app integrations",
+          "label": "Keep the existing Supabase project, schema, and data; port the app integrations"
+        },
+        {
+          "value": "Keep Supabase data but move selected backend services into Next.js",
+          "label": "Keep Supabase data but move selected backend services into Next.js"
+        },
+        {
+          "value": "Move to a new schema/database and migrate data",
+          "label": "Move to a new schema/database and migrate data"
+        },
+        {
+          "value": "Dual-write during a transition",
+          "label": "Dual-write during a transition"
+        },
+        {
+          "value": "Assess from the source during implementation planning",
+          "label": "Assess from the source during implementation planning"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "B4",
+      "kit": "backend",
+      "field": "auth.framework",
+      "title": "Authentication",
+      "question": "What should happen to the current authentication and authorization behavior? The source has Supabase auth integration.",
+      "importance": "recommended",
+      "impact": 4,
+      "recommended": "Preserve existing Supabase auth mechanism and user flows",
+      "default": "preserve existing auth mechanism; detect from codebase",
+      "prefilled": true,
+      "prefilled_value": "Preserve existing Supabase auth mechanism and user flows",
+      "answer": {
+        "value": "Preserve existing Supabase auth mechanism and user flows",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Preserve existing Supabase auth mechanism and user flows",
+          "label": "Preserve existing Supabase auth mechanism and user flows"
+        },
+        {
+          "value": "Replace with a new auth provider",
+          "label": "Replace with a new auth provider"
+        },
+        {
+          "value": "Other auth framework or policy",
+          "label": "Other auth framework or policy"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "B5",
+      "kit": "backend",
+      "field": "nfr.sla",
+      "title": "Performance and availability",
+      "question": "What latency, throughput, or availability targets should the recreated system meet?",
+      "importance": "recommended",
+      "impact": 2,
+      "recommended": null,
+      "default": "match current production baseline; no regression",
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "match current production baseline; no regression",
+        "source": "default"
+      },
+      "depends_on": null,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "G1",
+      "kit": "generic",
+      "field": "success.definition",
+      "title": "Definition of done",
+      "question": "What outcome will count as successful? You asked for an exact recreation; should success require all existing user flows and backend behavior to work in the new JavaScript/Next.js project?",
+      "importance": "required",
+      "impact": 5,
+      "recommended": "Feature parity: all existing user-visible behavior and backend flows preserved, with visual parity against the source",
+      "default": "feature parity with the current system; all existing user-facing behaviors preserved",
+      "prefilled": true,
+      "prefilled_value": "Feature parity: all existing user-visible behavior and backend flows preserved, with visual parity against the source",
+      "answer": {
+        "value": "Feature parity: all existing user-visible behavior and backend flows preserved, with visual parity against the source",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Feature parity: all existing user-visible behavior and backend flows preserved, with visual parity against the source",
+          "label": "Feature parity: all existing user-visible behavior and backend flows preserved, with visual parity against the source"
+        },
+        {
+          "value": "Feature parity, but visual redesign is acceptable",
+          "label": "Feature parity, but visual redesign is acceptable"
+        },
+        {
+          "value": "Other success criteria",
+          "label": "Other success criteria"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "G2",
+      "kit": "generic",
+      "field": "out_of_scope",
+      "title": "Out of scope",
+      "question": "Are any screens, integrations, data, or behaviors explicitly out of scope for this rewrite?",
+      "importance": "recommended",
+      "impact": 2,
+      "recommended": null,
+      "default": "no explicit exclusions; agent will infer from project structure",
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "no explicit exclusions; agent will infer from project structure",
+        "source": "default"
+      },
+      "depends_on": null,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "G3",
+      "kit": "generic",
+      "field": "existing_tests.posture",
+      "title": "Existing tests",
+      "question": "How should the existing test suite be treated during the recreation?",
+      "importance": "recommended",
+      "impact": 3,
+      "recommended": "Must pass",
+      "default": "must pass",
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "Must pass",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Must pass",
+          "label": "Must pass"
+        },
+        {
+          "value": "Can be rewritten with equivalent coverage",
+          "label": "Can be rewritten with equivalent coverage"
+        },
+        {
+          "value": "Ignore existing tests and write new tests",
+          "label": "Ignore existing tests and write new tests"
+        },
+        {
+          "value": "Partial: specify suites to preserve",
+          "label": "Partial: specify suites to preserve"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "G4",
+      "kit": "generic",
+      "field": "target.output_location",
+      "title": "Rewrite destination",
+      "question": "Where should the JavaScript/Next.js recreation be written? The target folder already exists and has a Next.js scaffold.",
+      "importance": "required",
+      "impact": 4,
+      "recommended": "triage-bug-tracker (existing target folder)",
+      "default": "new sibling directory: triage-new",
+      "prefilled": true,
+      "prefilled_value": "triage-bug-tracker (existing target folder)",
+      "answer": {
+        "value": "triage-bug-tracker (existing target folder)",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "triage-bug-tracker (existing target folder)",
+          "label": "triage-bug-tracker (existing target folder)"
+        },
+        {
+          "value": "Create a new sibling folder and leave the scaffold untouched",
+          "label": "Create a new sibling folder and leave the scaffold untouched"
+        },
+        {
+          "value": "In-place replacement of the source root",
+          "label": "In-place replacement of the source root"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "G5",
+      "kit": "generic",
+      "field": "constraints.additional",
+      "title": "Additional constraints",
+      "question": "List any other requirements, exclusions, dependencies, compliance rules, or operational constraints for the recreation.",
+      "importance": "optional",
+      "impact": 2,
+      "recommended": null,
+      "default": "None beyond the decisions listed in this specification.",
+      "prefilled": true,
+      "prefilled_value": "None beyond the decisions listed in this specification.",
+      "answer": {
+        "value": "None beyond the decisions listed in this specification.",
+        "source": "user"
+      },
+      "depends_on": null,
+      "type": "text",
+      "options": []
+    }
+  ]
+}

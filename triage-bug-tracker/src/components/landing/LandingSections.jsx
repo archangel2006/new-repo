@@ -1,0 +1,20 @@
+"use client";
+
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState } from "react";
+import { ArrowRight, Check, CircleDot, Inbox, Layers, MessageSquare } from "lucide-react";
+import { Button } from "@/components/ui/button";
+const issues = [
+    { id: "TRG-142", title: "Checkout fails on mobile Safari", status: "In progress" },
+    { id: "TRG-139", title: "Session expires during upload", status: "In review" },
+    { id: "TRG-138", title: "Search results load twice", status: "Open" },
+    { id: "TRG-135", title: "Notification badge won't clear", status: "Resolved" },
+];
+export function ProductPreview() {
+    const [selected, setSelected] = useState(0);
+    const issue = issues[selected] ?? issues[0];
+    return _jsxs("div", { className: "landing-refined product-preview", "aria-label": "Example issue workspace", children: [_jsxs("div", { className: "preview-top", children: [_jsx(Layers, { size: 15 }), _jsx("strong", { children: "Triage" }), _jsx("span", { children: "/ Engineering" })] }), _jsxs("div", { className: "preview-body", children: [_jsxs("aside", { className: "preview-sidebar", children: [_jsxs("div", { className: "preview-nav-item", children: [_jsx(Inbox, { size: 14 }), " Inbox"] }), _jsxs("div", { className: "preview-nav-item", children: [_jsx(CircleDot, { size: 14 }), " My issues"] }), _jsxs("div", { className: "preview-nav-item active", children: [_jsx(Layers, { size: 14 }), " All issues"] })] }), _jsxs("div", { className: "preview-issues", children: [_jsx("div", { className: "issue-toolbar", children: "All issues" }), issues.map((row, i) => _jsxs(Button, { variant: "ghost", onClick: () => setSelected(i), "aria-pressed": selected === i, className: `preview-issue ${selected === i ? "selected" : ""}`, children: [_jsx("span", { className: "issue-id", children: row.id }), _jsx("span", { className: "issue-title", children: row.title }), _jsx("span", { className: "issue-state", children: row.status === "Resolved" ? _jsx(Check, { size: 13 }) : _jsx(CircleDot, { size: 13 }) })] }, row.id))] }), _jsxs("aside", { className: "preview-detail", children: [_jsx("span", { className: "issue-id", children: issue.id }), _jsx("h3", { children: issue.title }), _jsxs("div", { className: "detail-status", children: [_jsx("span", { children: "Status" }), _jsx("span", { children: issue.status })] })] })] })] });
+}
+export function FeatureSections() {
+    return _jsx("section", { className: "landing-refined feature-section relative z-10 px-6", children: _jsxs("div", { className: "mx-auto max-w-[1200px]", children: [_jsxs("div", { className: "feature-heading", children: [_jsx("p", { children: "Built for speed" }), _jsxs("h2", { children: ["Less process.", _jsx("br", {}), "More progress."] })] }), _jsxs("div", { className: "feature-grid", children: [_jsxs("article", { className: "feature-item", children: [_jsxs("div", { className: "feature-visual priority-visual", "aria-hidden": "true", children: [_jsx("span", {}), _jsx("span", {}), _jsx("span", {}), _jsx("span", {})] }), _jsx("h3", { children: "Priority triage" }), _jsx("p", { children: "Know what to fix first." })] }), _jsxs("article", { className: "feature-item", children: [_jsxs("div", { className: "feature-visual workflow-visual", "aria-hidden": "true", children: [_jsx("span", { className: "workflow-node", children: _jsx(CircleDot, { size: 18 }) }), _jsx(ArrowRight, { size: 15 }), _jsx("span", { className: "workflow-node", children: _jsx(MessageSquare, { size: 17 }) }), _jsx(ArrowRight, { size: 15 }), _jsx("span", { className: "workflow-node", children: _jsx(Check, { size: 19 }) })] }), _jsx("h3", { children: "Team workflows" }), _jsx("p", { children: "From assigned to resolved, together." })] }), _jsxs("article", { className: "feature-item", children: [_jsx("div", { className: "feature-visual analytics-visual", "aria-hidden": "true", children: ["one", "two", "three", "four", "five", "six"].map(bar => _jsx("span", { className: `chart-bar ${bar}` }, bar)) }), _jsx("h3", { children: "Real-time analytics" }), _jsx("p", { children: "A clear view of your team's progress." })] })] })] }) });
+}
